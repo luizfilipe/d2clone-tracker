@@ -1,15 +1,15 @@
 # README
 
-This is a script that reaches [**diablo2.io DClone tracker**](https://diablo2.io/dclonetracker.php) to provide information regarding DCone progressing.
-This will sound a beep if there's any progression on the DClone event.
+This is a script that reaches [**diablo2.io DClone tracker**](https://diablo2.io/dclonetracker.php) to provide information regarding DClone progression.
+This script will sound a beep if there's any progression on the DClone event.
 
 **NOTE 1**: For more information about DClone, please read [**Maxroll guide**](https://d2.maxroll.gg/meta/diablo-clone)
 
-**NOTE 2**: diablo2.io racker community maintained.
+**NOTE 2**: diablo2.io tracker is community maintained.
 
 ## Install
 
-* Install [**node.js**](https://nodejs.org/en/)   .
+* Install [**node.js**](https://nodejs.org/en/).
 * Download the project at [**GitHub**](https://github.com/luizfilipe/d2clone-tracker/archive/refs/heads/main.zip) repository.
 * Open command line prompt.
 * Go to the project folder.
