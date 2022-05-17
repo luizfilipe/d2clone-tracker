@@ -54,7 +54,7 @@ const getD2CloneData = () => {
   get(D2IO_URL)
     .then(({ data, status }) => {
       latestData = data;
-      data.forEach(({ progress, region, hc, ladder }) => {
+      (data || []).forEach(({ progress, region, hc, ladder }) => {
         const id = `${region + hc + ladder}`;
         if (!store[id]) {
           store[id] = progress;
@@ -76,12 +76,12 @@ setTimeout(getD2CloneData, 0);
 
 setInterval(() => {
   console.clear();
-  console.log(`${step === 1 ? '1 request' : `${step} requests`} to DClone tracker`);
+  console.log(`${step === 1 ? '1 request' : `${step} requests`} to DClone tracker (Data courtesy of diablo2.io)`);
   console.log('Next request in', moment(lastUpdate + UPDATE_TIMESTAMP - Date.now()).format('ss'), 'seconds');
   if (loading) {
     console.log('Fetching latest data...');
   }
-  latestData.forEach(({ progress, region, hc, ladder, timestamped }) => console.log([
+  (latestData || []).forEach(({ progress, region, hc, ladder, timestamped }) => console.log([
     `${progress}/${Object.keys(PROGRESSION).length}`,
     REGIONS[region],
     MODES[hc],
