@@ -23,13 +23,13 @@ const MODES = {
   1: 'Hardcore',
   2: 'Softcore'
 };
-const SELECTED_MODE = 1;
+const SELECTED_MODE = 2;
 
 const LEAGUES = {
   1: 'The Ladder',
   2: 'Non-Ladder'
 };
-const SELECTED_LEAGUE = 2;
+const SELECTED_LEAGUE = 1;
 
 const D2IO_URL = 'https://diablo2.io/dclone_api.php?' + querystring.stringify({
   hc: SELECTED_MODE,
