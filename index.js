@@ -32,8 +32,8 @@ const LEAGUES = {
 const SELECTED_LEAGUE = 2;
 
 const D2IO_URL = 'https://diablo2.io/dclone_api.php?' + querystring.stringify({
-  hc: SELECTED_LEAGUE,
-  ladder: SELECTED_MODE,
+  hc: SELECTED_MODE,
+  ladder: SELECTED_LEAGUE,
   sk: 'r',
   sd: 'a'
 });
