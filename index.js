@@ -52,19 +52,21 @@ const getD2CloneData = () => {
   loading = true;
   lastUpdate = Date.now();
   get(D2IO_URL)
-    .then(({ data, status }) => {
-      latestData = data;
-      (data || []).forEach(({ progress, region, hc, ladder }) => {
-        const id = `${region + hc + ladder}`;
-        if (!store[id]) {
-          store[id] = progress;
-        }
+    .then(({ data }) => {
+      if (Array.isArray(data)) {
+        latestData = data;
+        data.forEach(({ progress, region, hc, ladder }) => {
+          const id = `${region + hc + ladder}`;
+          if (!store[id]) {
+            store[id] = progress;
+          }
 
-        if (store[id] !== progress) {
-          store[id] = progress;
-          bell();
-        }
-      });
+          if (store[id] !== progress) {
+            store[id] = progress;
+            bell();
+          }
+        });
+      }
     })
     .catch((err) => console.error(err.message))
     .finally(() => {
@@ -81,7 +83,7 @@ setInterval(() => {
   if (loading) {
     console.log('Fetching latest data...');
   }
-  (latestData || []).forEach(({ progress, region, hc, ladder, timestamped }) => console.log([
+  latestData.forEach(({ progress, region, hc, ladder, timestamped }) => console.log([
     `${progress}/${Object.keys(PROGRESSION).length}`,
     REGIONS[region],
     MODES[hc],
